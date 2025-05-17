@@ -1,119 +1,20 @@
+import { TravelHistoryItem } from "@/data/travelData";
 import { Text, View } from "react-native";
 
 // Icons for visualization purposes
-const BikeIcon = () => (
+export const BikeIcon = () => (
   <View className="w-6 h-6 rounded-full bg-emerald-800 flex items-center justify-center">
     <Text className="text-white text-xs">🚲</Text>
   </View>
 );
 
-const CarIcon = () => (
+export const CarIcon = () => (
   <View className="w-6 h-6 rounded-full bg-emerald-800 flex items-center justify-center">
     <Text className="text-white text-xs">🚗</Text>
   </View>
 );
 
-interface TravelHistoryItem {
-  id: string;
-  icon: React.ReactNode;
-  location: string;
-  carbon: number;
-}
-
-const travelHistory: TravelHistoryItem[] = [
-  {
-    id: "1",
-    icon: <BikeIcon />,
-    location: "Institut Teknologi Bandung",
-    carbon: 33.8,
-  },
-  {
-    id: "2",
-    icon: <CarIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 10.7,
-  },
-  {
-    id: "3",
-    icon: <BikeIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 9.7,
-  },
-  {
-    id: "4",
-    icon: <BikeIcon />,
-    location: "Institut Teknologi Bandung",
-    carbon: 33.8,
-  },
-  {
-    id: "5",
-    icon: <CarIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 10.7,
-  },
-  {
-    id: "6",
-    icon: <BikeIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 9.7,
-  },
-  {
-    id: "7",
-    icon: <BikeIcon />,
-    location: "Institut Teknologi Bandung",
-    carbon: 33.8,
-  },
-  {
-    id: "8",
-    icon: <CarIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 10.7,
-  },
-  {
-    id: "9",
-    icon: <BikeIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 9.7,
-  },
-  {
-    id: "10",
-    icon: <BikeIcon />,
-    location: "Institut Teknologi Bandung",
-    carbon: 33.8,
-  },
-  {
-    id: "11",
-    icon: <CarIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 10.7,
-  },
-  {
-    id: "12",
-    icon: <BikeIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 9.7,
-  },
-  {
-    id: "13",
-    icon: <BikeIcon />,
-    location: "Institut Teknologi Bandung",
-    carbon: 33.8,
-  },
-  {
-    id: "14",
-    icon: <CarIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 10.7,
-  },
-  {
-    id: "15",
-    icon: <BikeIcon />,
-    location: "Bandung Indah Plaza",
-    carbon: 9.7,
-  },
-];
-
-interface HistoryListProps {
+export interface HistoryListProps {
   travelHistory?: TravelHistoryItem[];
   limit?: number;
 }
@@ -125,8 +26,8 @@ export function HistoryList({ travelHistory = [], limit }: HistoryListProps) {
     .slice(0, limit);
 
   return (
-    <View className="items-center border-2 border-gray-200 rounded-3xl">
-      <View className="bg-white w-11/12 rounded-xl p-2">
+    <View className="border-2 border-gray-200 rounded-3xl">
+      <View className="w-10/12 rounded-xl p-4 m-2">
         {displayItems.map((item, index, filteredArray) => (
           <View
             key={item.id}
