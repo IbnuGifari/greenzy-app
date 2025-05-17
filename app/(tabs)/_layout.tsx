@@ -45,6 +45,13 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* Hide this screen from the tab bar */}
+      <Tabs.Screen
+        name="tripHistory"
+        options={{
+          href: null, // This prevents direct access from tabs
+        }}
+      />
     </Tabs>
   );
 }
