@@ -1,11 +1,6 @@
-import { CarbonFootprintOverviewCard } from "@/components/CarbonFootprintOverviewCard";
-import { HistoryList } from "@/components/HistoryList";
-import { ReadyToGoCard } from "@/components/ReadyToGoCard";
-import { WelcomeHeader } from "@/components/WelcomeHeader";
-import React from "react";
-import { ScrollView, StatusBar, Text, View } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { Text, View } from "react-native";
 
+// Icons for visualization purposes
 const BikeIcon = () => (
   <View className="w-6 h-6 rounded-full bg-emerald-800 flex items-center justify-center">
     <Text className="text-white text-xs">🚲</Text>
@@ -118,25 +113,40 @@ const travelHistory: TravelHistoryItem[] = [
   },
 ];
 
-export default function HomeScreen() {
+interface HistoryListProps {
+  travelHistory?: TravelHistoryItem[];
+  limit?: number;
+}
+
+export function HistoryList({ travelHistory = [], limit }: HistoryListProps) {
+  // Sort and limit the history items
+  const displayItems = [...travelHistory]
+    .sort((itemA, itemB) => Number(itemA.id) - Number(itemB.id))
+    .slice(0, limit);
+
   return (
-    <SafeAreaProvider>
-      <SafeAreaView className="flex-1 bg-white">
-        <StatusBar barStyle="dark-content" />
-        <WelcomeHeader />
-        {/* Main Content */}
-        <ScrollView className="px-5">
-          {/* Ready to go section */}
-          <ReadyToGoCard />
-          {/* Carbon Footprint Section */}
-          <CarbonFootprintOverviewCard />
-          {/* Travel History Section */}
-          <View className="mb-6">
-            <Text className="text-xl font-bold mb-2">Riwayat Perjalanan</Text>
-            <HistoryList travelHistory={travelHistory} limit={5} />
+    <View className="items-center border-2 border-gray-200 rounded-3xl">
+      <View className="bg-white w-11/12 rounded-xl p-2">
+        {displayItems.map((item, index, filteredArray) => (
+          <View
+            key={item.id}
+            className={`flex-row items-center justify-between py-3 ${
+              index !== filteredArray.length - 1
+                ? "border-b border-gray-200"
+                : ""
+            }`}
+          >
+            <View className="flex-row items-center">
+              {item.icon}
+              <Text className="ml-3 text-gray-800">{item.location}</Text>
+            </View>
+            <View>
+              <Text className="text-right font-semibold">{item.carbon}</Text>
+              <Text className="text-xs text-gray-500">kg CO2 eq</Text>
+            </View>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </SafeAreaProvider>
+        ))}
+      </View>
+    </View>
   );
 }
