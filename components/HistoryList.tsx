@@ -26,8 +26,8 @@ export function HistoryList({ travelHistory = [], limit }: HistoryListProps) {
     .slice(0, limit);
 
   return (
-    <View className="border-2 border-gray-200 rounded-3xl">
-      <View className="w-10/12 rounded-xl p-4 m-2">
+    <View className="border-2 border-gray-200 rounded-3xl items-center">
+      <View className="w-10/12 rounded-xl m-2">
         {displayItems.map((item, index, filteredArray) => (
           <View
             key={item.id}
