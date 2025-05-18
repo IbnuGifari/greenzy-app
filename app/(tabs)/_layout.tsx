@@ -52,6 +52,18 @@ export default function TabLayout() {
           href: null, // This prevents direct access from tabs
         }}
       />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          href: null, // This prevents direct access from tabs
+        }}
+      />
+      <Tabs.Screen
+        name="newTrip"
+        options={{
+          href: null, // This prevents direct access from tabs
+        }}
+      />
     </Tabs>
   );
 }

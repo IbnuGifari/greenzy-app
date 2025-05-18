@@ -12,7 +12,6 @@ export default function TripHistoryScreen() {
   return (
     <SafeAreaView className="flex-1 bg-neutral-50">
       <TabHeader title="Riwayat Perjalanan" />
-
       <ScrollView className="flex-1 px-4">
         <HistoryList travelHistory={travelHistory} />
       </ScrollView>
