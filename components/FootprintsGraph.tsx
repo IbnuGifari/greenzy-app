@@ -2,10 +2,12 @@ import React from "react";
 import { Dimensions, Text, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 
-export function FootPrintGraph() {
+export function FootPrintsGraph() {
   return (
-    <View>
-      <Text>Bezier Line Chart</Text>
+    <View className="bg-[#f6f6f9] items-center">
+      <Text className="mt-2 text-lg font-semibold">
+        Grafik Jejak Karbon Kamu
+      </Text>
       <LineChart
         data={{
           labels: ["January", "February", "March", "April", "May", "June"],
@@ -22,31 +24,36 @@ export function FootPrintGraph() {
             },
           ],
         }}
-        width={Dimensions.get("window").width} // from react-native
+        width={Dimensions.get("window").width - 32} // from react-native
         height={220}
         yAxisLabel="$"
         yAxisSuffix="k"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#fb8c00",
-          backgroundGradientTo: "#ffa726",
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          backgroundColor: "#f6f6f9",
+          backgroundGradientFrom: "#f6f6f9",
+          backgroundGradientTo: "#f6f6f9",
+          decimalPlaces: 1, // optional, defaults to 2dp
+          color: (opacity = 1) => `rgba(46, 77, 48, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(46, 77, 48, ${opacity})`,
           style: {
             borderRadius: 16,
           },
           propsForDots: {
             r: "6",
             strokeWidth: "2",
-            stroke: "#ffa726",
+            stroke: "#2e4d30",
           },
         }}
         bezier
         style={{
-          marginVertical: 8,
-          borderRadius: 16,
+          marginVertical: 16,
+          marginRight: 8,
+          marginLeft: 8,
+          borderRadius: 24,
+          borderColor: "#112e4d30",
+          borderWidth: 2,
+          padding: 10,
         }}
       />
     </View>
