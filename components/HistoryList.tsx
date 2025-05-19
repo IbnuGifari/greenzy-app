@@ -1,16 +1,27 @@
 import { TravelHistoryItem } from "@/data/travelData";
+import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
 // Icons for visualization purposes
 export const BikeIcon = () => (
-  <View className="w-6 h-6 rounded-full bg-emerald-800 flex items-center justify-center">
-    <Text className="text-white text-xs">🚲</Text>
+  <View className="p-2 rounded-full bg-[#CDDCC8] flex items-center justify-center">
+    <Ionicons
+      name="bicycle"
+      size={16}
+      color="#2E4D30"
+      className="text-white text-xs"
+    />
   </View>
 );
 
 export const CarIcon = () => (
-  <View className="w-6 h-6 rounded-full bg-emerald-800 flex items-center justify-center">
-    <Text className="text-white text-xs">🚗</Text>
+  <View className="p-2 rounded-full bg-[#CDDCC8] flex items-center justify-center">
+    <Ionicons
+      name="car-sport"
+      size={16}
+      color="#2E4D30"
+      className="text-white text-xs"
+    />
   </View>
 );
 

@@ -91,7 +91,7 @@ function ProfileItem({
   label: string;
 }) {
   return (
-    <TouchableOpacity className="flex-row items-center justify-between bg-white py-4 px-4 rounded-md border border-gray-100">
+    <TouchableOpacity className="flex-row items-center justify-between bg-[#F6F6F9] py-4 px-4 rounded-md border border-gray-100">
       <View className="flex-row items-center space-x-3">
         <View className="bg-[#CDDCC8] p-2 rounded-full">{icon}</View>
         <Text className="text-[#2E4D30] mx-4 font-medium">{label}</Text>

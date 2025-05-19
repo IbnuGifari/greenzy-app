@@ -5,7 +5,7 @@ import { User } from "react-native-feather";
 export function WelcomeHeader() {
   const router = useRouter();
   return (
-    <View className="rounded-b-2xl px-5 pt-2 pb-4 mb-4 bg-white">
+    <View className="rounded-b-2xl px-5 pt-2 pb-4 mb-4 bg-[#F9F9F6]">
       <View className="flex-row justify-between items-center">
         <View>
           <Text className="text-2xl font-bold">Hai, Ibnu!</Text>

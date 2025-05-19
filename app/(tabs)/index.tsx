@@ -48,7 +48,7 @@ let date = d.getDate();
 export default function HomeScreen() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView className="flex-1 bg-white">
+      <SafeAreaView className="flex-1 bg-[#F9F9F6]">
         <StatusBar barStyle="dark-content" />
         {/* Header */}
         <WelcomeHeader />

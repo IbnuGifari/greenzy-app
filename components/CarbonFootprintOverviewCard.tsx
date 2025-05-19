@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 
 export function CarbonFootprintOverviewCard() {
   return (
-    <View className="bg-[#CDDCC8] border-2 border-[#2E4D30] rounded-3xl p-4 mb-4">
+    <View className="bg-[#CDDCC8] rounded-3xl p-4 mb-4">
       <View className="flex-row justify-between items-center">
         <View className="flex-1">
           <Text className="text-[#2E4D30] text-2xl font-semibold">

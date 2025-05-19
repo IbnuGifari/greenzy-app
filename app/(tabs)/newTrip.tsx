@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context"; // Import SafeAre
 
 export default function NewTripScreen() {
   return (
-    <SafeAreaView className="flex-1 bg-neutral-50">
+    <SafeAreaView className="flex-1 bg-[#F9F9F6]">
       <TabHeader title="Perjalanan Baru" />
       <ScrollView className="flex-1 px-4">
         <Text className="text-lg font-semibold mb-4">
