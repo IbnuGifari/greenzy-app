@@ -6,24 +6,24 @@ export function ReadyToGoCard() {
   const router = useRouter();
   // Function to handle navigation when the button is pressed
   return (
-    <View className="bg-[#CDDCC8] rounded-3xl p-4 mb-4">
+    <View className="bg-green-800 rounded-2xl p-4 mb-4">
       <View className="flex-row grid grid-cols-2 gap-4 justify-between items-center">
-        <View className="items-center justify-center">
-          <Text className="text-[#2E4D30] text-3xl font-semibold">
-            Siap untuk
+        <View className="items-left justify-center">
+          <Text className="text-[#F9F9F6] text-2xl font-semibold">
+            Siap untuk bepergian?
           </Text>
-          <Text className="text-[#2E4D30] text-3xl font-semibold">
-            bepergian?
+          <Text className="text-[#F9F9F6] text-sm font-regular">
+            Rekam jejak karbon perjalanan Anda
           </Text>
           <TouchableOpacity
-            className="bg-[#2E4D30] w-5/6 items-center px-5 py-2 rounded-full mt-2"
+            className="bg-gray-50 w-3/6 items-center px-5 py-2 rounded-full mt-4"
             onPress={() => router.push("/newTrip")}
           >
-            <Text className="text-[#F9F9F6] font-medium">Mulai</Text>
+            <Text className="text-green-800 font-medium">Mulai</Text>
           </TouchableOpacity>
         </View>
         <View className="items-center justify-center">
-          <Ionicons name="bicycle" size={100} color="#2E4D30" />
+          <Ionicons name="bicycle" size={100} color="#CDDCC8" />
         </View>
       </View>
     </View>
