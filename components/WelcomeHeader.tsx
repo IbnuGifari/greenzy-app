@@ -34,7 +34,7 @@ let date = d.getDate();
 export function WelcomeHeader() {
   const router = useRouter();
   return (
-    <View className="rounded-b-2xl px-5 pt-2 pb-4 mb-4 bg-[#F9F9F6]">
+    <View className="rounded-b-2xl px-5 pt-2 pb-4 mb-4 bg-[#F6F9F9]">
       <View className="flex-row justify-between items-center">
         <View>
           <Text className="text-2xl font-bold">Hai, Ibnu!</Text>
@@ -46,7 +46,7 @@ export function WelcomeHeader() {
           </View>
         </View>
         <TouchableOpacity
-          className="w-16 h-16 bg-[#CDDCC8] rounded-full items-center justify-center"
+          className="w-16 h-16 rounded-full items-center justify-center"
           onPress={() => router.push("/profile")}
         >
           <User stroke="#333" width={32} height={32} />

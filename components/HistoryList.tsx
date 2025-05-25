@@ -4,22 +4,22 @@ import { Text, View } from "react-native";
 
 // Icons for visualization purposes
 export const BikeIcon = () => (
-  <View className="p-2 rounded-full bg-[#CDDCC8] flex items-center justify-center">
+  <View className="p-2 rounded-full bg-transparent flex items-center justify-center">
     <Ionicons
       name="bicycle"
-      size={16}
-      color="#2E4D30"
+      size={20}
+      color="#166534"
       className="text-white text-xs"
     />
   </View>
 );
 
 export const CarIcon = () => (
-  <View className="p-2 rounded-full bg-[#CDDCC8] flex items-center justify-center">
+  <View className="p-2 rounded-full bg-transparent flex items-center justify-center">
     <Ionicons
       name="car-sport"
-      size={16}
-      color="#2E4D30"
+      size={20}
+      color="#166534"
       className="text-white text-xs"
     />
   </View>
@@ -37,7 +37,7 @@ export function HistoryList({ travelHistory = [], limit }: HistoryListProps) {
     .slice(0, limit);
 
   return (
-    <View className="border-2 border-gray-200 rounded-3xl items-center">
+    <View className="border-2 border-gray-200 rounded-3xl items-center ">
       <View className="w-10/12 rounded-xl m-2">
         {displayItems.map((item, index, filteredArray) => (
           <View

@@ -4,7 +4,7 @@ import { LineChart } from "react-native-chart-kit";
 
 export function FootPrintsGraph() {
   return (
-    <View className="bg-[#f6f6f9] items-center">
+    <View className="bg-[#F6F6F9] items-center">
       <Text className="mt-2 text-lg font-semibold">
         Grafik Jejak Karbon Kamu
       </Text>
@@ -52,7 +52,7 @@ export function FootPrintsGraph() {
           marginLeft: 8,
           borderRadius: 24,
           borderColor: "#112e4d30",
-          borderWidth: 2,
+          borderWidth: 1,
           padding: 10,
         }}
       />

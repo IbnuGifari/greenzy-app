@@ -12,20 +12,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { Clock } from "react-native-feather";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-const router = useRouter();
-
-const weekday = [
-  "Minggu",
-  "Senin",
-  "Selasa",
-  "Rabu",
-  "Kamis",
-  "Jumat",
-  "Sabtu",
-];
-const month = [
+const d = new Date();
+let monthName = d.getMonth();
+let monthNames = [
   "Januari",
   "Februari",
   "Maret",
@@ -40,30 +32,26 @@ const month = [
   "Desember",
 ];
 
-const d = new Date();
-let day = weekday[d.getDay()];
-let monthName = month[d.getMonth()];
-let date = d.getDate();
+const router = useRouter();
 
 export default function HomeScreen() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView className="flex-1 bg-[#F9F9F6]">
+      <SafeAreaView className="flex-1 bg-[#F6F6F9]">
         <StatusBar barStyle="dark-content" />
-        {/* Header */}
         <WelcomeHeader />
-        {/* Main Content */}
         <ScrollView className="px-4 flex-1">
           <ReadyToGoCard />
-          <CarbonFootprintOverviewCard />
+          <CarbonFootprintOverviewCard bulan={monthNames[monthName]} />
           <View className="my-2">
             <View className="flex-row rows-2 justify-between items-center mb-4">
               <Text className="text-xl font-bold mb-4">Riwayat Perjalanan</Text>
               <TouchableOpacity
-                className="bg-[#CDDCC8] rounded-full px-4 py-2 mb-4"
+                className="flex-row px-4 py-2 mb-4"
                 onPress={() => router.push("/tripHistory")}
               >
-                <Text className="text-[#2E4D30] font-semibold">
+                <Clock stroke="#008236" width={20} height={20} />
+                <Text className="text-green-700 font-regular text-sm ml-1">
                   Lihat Semua
                 </Text>
               </TouchableOpacity>

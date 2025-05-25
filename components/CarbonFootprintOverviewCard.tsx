@@ -1,7 +1,8 @@
 import { Text, View } from "react-native";
 import { CheckCircle } from "react-native-feather";
+import { MiniChart } from "./MiniChart";
 
-export function CarbonFootprintOverviewCard() {
+export function CarbonFootprintOverviewCard({ bulan }: { bulan: string }) {
   return (
     <View className="bg-gray-50 rounded-2xl p-4 mb-4 shadow-sm border border-green-100">
       <View className="flex-row justify-between items-center">
@@ -10,13 +11,13 @@ export function CarbonFootprintOverviewCard() {
             Total jejak karbon
           </Text>
           <View className="flex-row">
-            <CheckCircle stroke="#00A63E" height={20} width={20} />
-            <Text className="text-[#2E4D30] text-sm font-regular ml-2">
-              Bulan Mei
+            <CheckCircle stroke="#008236" height={20} width={20} />
+            <Text className="text-green-800 text-sm font-regular ml-2">
+              Bulan {bulan}
             </Text>
           </View>
 
-          <Text className="text-[#2E4D30] text-xs">
+          <Text className="text-gray-800 text-xs">
             Kerja bagus! langkah awal yang baik untuk lingkungan
           </Text>
         </View>
@@ -35,21 +36,6 @@ export function CarbonFootprintOverviewCard() {
           <MiniChart />
         </View>
       </View>
-    </View>
-  );
-}
-
-function MiniChart() {
-  return (
-    <View className="h-12 w-full flex-1 items-end">
-      {[3, 5, 4, 7, 6, 8, 4].map((value, index) => (
-        <View
-          key={index}
-          className={`flex-1 rounded-sm ${
-            index < 5 ? "bg-gray-200" : "bg-green-600"
-          } h-${value / 12}`}
-        />
-      ))}
     </View>
   );
 }

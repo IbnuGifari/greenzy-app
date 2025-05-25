@@ -11,7 +11,7 @@ export default function TripHistoryScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView className="flex-1 bg-neutral-50">
+    <SafeAreaView className="flex-1 bg-[#F6F6F9]">
       <TabHeader title="Riwayat Perjalanan" />
       <FootPrintsGraph />
       <View>
