@@ -1,11 +1,9 @@
+import { ConfirmationModal } from "@/components/ConfirmationModal";
+import EditEmailModal from "@/components/EditEmailModal";
+import EditPasswordModal from "@/components/EditPasswordModal";
 import { EditProfileModal } from "@/components/EditProfileModal"; // Assuming you have this component
 import { TabHeader } from "@/components/TabHeader";
-import {
-  Feather,
-  FontAwesome,
-  Ionicons,
-  MaterialIcons,
-} from "@expo/vector-icons";
+import { Feather, FontAwesome } from "@expo/vector-icons";
 import { RelativePathString, useRouter } from "expo-router"; // Import useRouter for navigation
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -14,11 +12,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 type ProfileData = {
   name: string;
   username: string;
-  email: string;
 };
 
 export default function ProfileScreen() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [editEmailModalVisible, setEditEmailModalVisible] = useState(false);
+  const [editPasswordModalVisible, setEditPasswordModalVisible] =
+    useState(false);
+  const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const handleSaveProfile = (data: ProfileData) => {
     console.log("Data disimpan:", data);
@@ -55,6 +57,104 @@ export default function ProfileScreen() {
           onClose={() => setModalVisible(false)}
           onSave={handleSaveProfile}
         />
+        <View>
+          <TouchableOpacity
+            className="flex-row items-center justify-between bg-[#F6F6F9] py-4 px-4 rounded-md border border-gray-100"
+            onPress={() => setEditEmailModalVisible(true)}
+          >
+            <View className="flex-row items-center space-x-3">
+              <View className="p-2 rounded-full">
+                <FontAwesome name="envelope" size={20} color="#166534" />
+              </View>
+              <Text className="text-gray-800 mx-4 font-medium">Ubah Email</Text>
+            </View>
+            <Feather name="chevron-right" size={20} color="#999" />
+          </TouchableOpacity>
+        </View>
+        <EditEmailModal
+          visible={editEmailModalVisible}
+          onClose={() => setEditEmailModalVisible(false)}
+          onSave={(data) => {
+            console.log("Email updated:", data);
+            setEditEmailModalVisible(false);
+          }}
+        />
+        <View>
+          <TouchableOpacity
+            className="flex-row items-center justify-between bg-[#F6F6F9] py-4 px-4 rounded-md border border-gray-100"
+            onPress={() => setEditPasswordModalVisible(true)}
+          >
+            <View className="flex-row items-center space-x-3">
+              <View className="p-2 rounded-full">
+                <Feather name="lock" size={20} color="#166534" />
+              </View>
+              <Text className="text-gray-800 mx-4 font-medium">
+                Ubah Password
+              </Text>
+            </View>
+            <Feather name="chevron-right" size={20} color="#999" />
+          </TouchableOpacity>
+        </View>
+        <EditPasswordModal
+          visible={editPasswordModalVisible}
+          onClose={() => setEditPasswordModalVisible(false)}
+          onSave={(data) => {
+            console.log("Password updated:", data);
+            setEditPasswordModalVisible(false);
+          }}
+        />
+        <View>
+          <TouchableOpacity
+            className="flex-row items-center justify-between bg-[#F6F6F9] py-4 px-4 rounded-md border border-gray-100"
+            onPress={() => setShowLogoutModal(true)}
+          >
+            <View className="flex-row items-center space-x-3">
+              <View className="p-2 rounded-full">
+                <Feather name="log-out" size={20} color="#166534" />
+              </View>
+              <Text className="text-gray-800 mx-4 font-medium">
+                Keluar Akun
+              </Text>
+            </View>
+            <Feather name="chevron-right" size={20} color="#999" />
+          </TouchableOpacity>
+        </View>
+        <ConfirmationModal
+          visible={showLogoutModal}
+          title="Konfirmasi Keluar"
+          message="Apakah Anda yakin ingin keluar dari akun ini?"
+          onCancel={() => setShowLogoutModal(false)}
+          onConfirm={() => {
+            console.log("User confirmed logout");
+            setShowLogoutModal(false);
+            // Handle logout logic here
+          }}
+        />
+        <View>
+          <TouchableOpacity
+            className="flex-row items-center justify-between bg-[#F6F6F9] py-4 px-4 rounded-md border border-gray-100"
+            onPress={() => setShowDeleteAccountModal(true)}
+          >
+            <View className="flex-row items-center space-x-3">
+              <View className="p-2 rounded-full">
+                <Feather name="trash" size={20} color="#166534" />
+              </View>
+              <Text className="text-gray-800 mx-4 font-medium">Hapus Akun</Text>
+            </View>
+            <Feather name="chevron-right" size={20} color="#999" />
+          </TouchableOpacity>
+        </View>
+        <ConfirmationModal
+          visible={showDeleteAccountModal}
+          title="Konfirmasi Hapus Akun"
+          message="Apakah Anda yakin ingin menghapus akun Anda secara permanen?"
+          onCancel={() => setShowDeleteAccountModal(false)}
+          onConfirm={() => {
+            console.log("User confirmed delete account");
+            setShowDeleteAccountModal(false);
+            // Handle logout logic here
+          }}
+        />
 
         {/* Akun Section */}
         <View className="space-y-2">
@@ -63,26 +163,6 @@ export default function ProfileScreen() {
             label="Riwayat Perjalanan"
             destination={{ type: "page", route: "../tripHistory" }} // destination={{ type: "page", route: "tripHistory" }}
           />
-          <ProfileItem
-            icon={<Feather name="key" size={20} color="#166534" />}
-            label="Ubah Kata Sandi"
-            destination={{ type: "page", route: "../explore" }} // destination={{ type: "modal", action: "changePassword" }}
-          />
-          <ProfileItem
-            icon={<MaterialIcons name="security" size={20} color="#166534" />}
-            label="Keamanan Akun"
-            destination={{ type: "page", route: "../tripHistory" }} // destination={{ type: "page", route: "security" }}
-          />
-          <ProfileItem
-            icon={<Feather name="log-out" size={20} color="#166534" />}
-            label="Keluar Akun"
-            destination={{ type: "page", route: "../tripHistory" }} // destination={{ type: "page", route: "logout" }}
-          />
-          <ProfileItem
-            icon={<Ionicons name="trash-bin" size={20} color="#166534" />}
-            label="Hapus Akun"
-            destination={{ type: "page", route: "../tripHistory" }} // destination={{ type: "modal", action: "deleteAccount" }}
-          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -90,11 +170,11 @@ export default function ProfileScreen() {
 }
 
 // Reusable List Item Component
-type ProfileItemDestination =
+export type ProfileItemDestination =
   | { type: "modal"; action: "changePassword" | "deleteAccount" }
   | { type: "page"; route: RelativePathString };
 
-function ProfileItem({
+export function ProfileItem({
   icon,
   label,
   destination,
