@@ -9,38 +9,14 @@ export function MapTabHeader({ title }: { title: string }) {
       <View className="flex-col">
         <View>
           <Text className="text-2xl font-semibold">{title}</Text>
-          <Text className="text-gray-500 mb-4">
+          <Text className="text-gray-500/70 mb-4">
             Jelajahi jejak karbon transportasi di ITB.
           </Text>
         </View>
-        <View className="flex-row mt-2 gap-2">
-          {["today", "week", "month"].map((period) => (
-            <TouchableOpacity
-              key={period}
-              onPress={() => setTimeFilter(period)}
-              className={`${
-                timeFilter === period
-                  ? "bg-green-700 rounded-md items-center p-1"
-                  : "bg-gray-100 rounded-md items-center p-1"
-              }`}
-            >
-              <Text
-                className={`${
-                  timeFilter === period
-                    ? "text-gray-100 text-sm font-semibold pr-1"
-                    : "text-green-800 text-sm font-semibold pr-1"
-                }`}
-              >
-                {" "}
-                {period === "today"
-                  ? "Hari ini"
-                  : period === "week"
-                  ? "Minggu ini"
-                  : "Bulan ini"}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+        <MapTabHeaderFilter
+          timeFilter={timeFilter}
+          setTimeFilter={setTimeFilter}
+        />
       </View>
       <View className="flex-row items-center">
         <TouchableOpacity className="p-2 rounded-lg">
@@ -50,6 +26,44 @@ export function MapTabHeader({ title }: { title: string }) {
           <Info stroke="#265B3F" width={24} height={24} />
         </TouchableOpacity>
       </View>
+    </View>
+  );
+}
+
+function MapTabHeaderFilter({
+  timeFilter,
+  setTimeFilter,
+}: {
+  timeFilter: string;
+  setTimeFilter: (filter: string) => void;
+}) {
+  return (
+    <View className="flex-row mt-2 gap-2">
+      {["today", "week", "month"].map((period) => (
+        <TouchableOpacity
+          key={period}
+          onPress={() => setTimeFilter(period)}
+          className={`${
+            timeFilter === period
+              ? "bg-green-800 rounded-md items-center p-1"
+              : "bg-gray-100 rounded-md items-center p-1"
+          }`}
+        >
+          <Text
+            className={`${
+              timeFilter === period
+                ? "text-gray-100 text-sm font-semibold mx-1"
+                : "text-green-800 text-sm font-semibold mx-1"
+            }`}
+          >
+            {period === "today"
+              ? "Hari ini"
+              : period === "week"
+              ? "Minggu ini"
+              : "Bulan ini"}
+          </Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
