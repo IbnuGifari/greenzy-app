@@ -47,7 +47,7 @@ export function FootPrintsGraph() {
         }}
         bezier
         style={{
-          marginVertical: 16,
+          marginVertical: 8,
           marginRight: 8,
           marginLeft: 8,
           borderRadius: 24,
