@@ -1,3 +1,4 @@
+import { MapContainer } from "@/components/MapContainer";
 import { MapLegend } from "@/components/MapLegend";
 import { MapTabHeader } from "@/components/MapTabHeader";
 import { ScrollView } from "react-native";
@@ -9,6 +10,7 @@ export default function FootprintMapScreen() {
       <MapTabHeader title="Peta Jejak Karbon" />
       <ScrollView className="flex-1 px-4">
         {/* Here you can add your map component */}
+        <MapContainer />
       </ScrollView>
       <MapLegend />
     </SafeAreaView>

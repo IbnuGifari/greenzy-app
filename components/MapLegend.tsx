@@ -4,10 +4,12 @@ import { Activity } from "react-native-feather"; // Ensure you have react-native
 export function MapLegend() {
   return (
     <View className="bg-[#f6f6f9] rounded-xl px-8 py-4">
-      <Text className="font-medium text-gray-900 mb-3 flex items-center">
+      <View className="flex-row items-center mb-4">
         <Activity width={16} height={16} color="#166534" />
-        Tingkat Emisi Karbon
-      </Text>
+        <Text className="font-medium text-gray-900 m-3 items-center">
+          Tingkat Emisi Karbon
+        </Text>
+      </View>
       <View className="flex-row justify-between items-center">
         <View className="flex items-center space-x-2">
           <View className="flex flex-row items-center gap-2">
