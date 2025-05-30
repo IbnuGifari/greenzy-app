@@ -3,7 +3,7 @@ import EditEmailModal from "@/components/EditEmailModal";
 import EditPasswordModal from "@/components/EditPasswordModal";
 import { EditProfileModal } from "@/components/EditProfileModal"; // Assuming you have this component
 import { TabHeader } from "@/components/TabHeader";
-import { Feather, FontAwesome } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 import { RelativePathString, useRouter } from "expo-router"; // Import useRouter for navigation
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -57,6 +57,14 @@ export default function ProfileScreen() {
           onClose={() => setModalVisible(false)}
           onSave={handleSaveProfile}
         />
+        {/* Akun Section */}
+        <View className="space-y-2">
+          <ProfileItem
+            icon={<Ionicons name="car-outline" size={20} color="#166534" />}
+            label="Riwayat Perjalanan"
+            destination={{ type: "page", route: "../tripHistory" }} // destination={{ type: "page", route: "tripHistory" }}
+          />
+        </View>
         <View>
           <TouchableOpacity
             className="flex-row items-center justify-between bg-[#F6F6F9] py-4 px-4 rounded-md border border-gray-100"
@@ -64,7 +72,7 @@ export default function ProfileScreen() {
           >
             <View className="flex-row items-center space-x-3">
               <View className="p-2 rounded-full">
-                <FontAwesome name="envelope" size={20} color="#166534" />
+                <Feather name="mail" size={20} color="#166534" />
               </View>
               <Text className="text-gray-800 mx-4 font-medium">Ubah Email</Text>
             </View>
@@ -155,15 +163,6 @@ export default function ProfileScreen() {
             // Handle logout logic here
           }}
         />
-
-        {/* Akun Section */}
-        <View className="space-y-2">
-          <ProfileItem
-            icon={<FontAwesome name="car" size={20} color="#166534" />}
-            label="Riwayat Perjalanan"
-            destination={{ type: "page", route: "../tripHistory" }} // destination={{ type: "page", route: "tripHistory" }}
-          />
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
