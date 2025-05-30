@@ -27,7 +27,7 @@ export const EditPasswordModal: React.FC<EditPasswordModalProps> = ({
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View className="flex-1 justify-center items-center bg-black/50 px-6">
-        <View className="bg-white rounded-xl p-6 w-full max-w-md">
+        <View className="bg-white rounded-2xl p-6 w-full max-w-md">
           <View className="flex-row justify-between items-center mb-4">
             <Text className="text-lg font-semibold text-[#2E4D30]">
               Edit Password

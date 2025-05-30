@@ -16,7 +16,7 @@ export function ConfirmationModal({
   return (
     <Modal transparent={true} animationType="fade" visible={visible}>
       <View className="flex-1 justify-center items-center bg-black/40">
-        <View className="bg-white p-6 rounded-lg w-[80%]">
+        <View className="bg-white p-6 rounded-2xl w-[80%]">
           <Text className="text-lg font-semibold text-[#2E4D30] mb-2">
             {title}
           </Text>
